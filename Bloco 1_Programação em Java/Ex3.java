@@ -23,11 +23,8 @@ public class Ex3 {
 
             String[] inputs = in.nextLine().trim().replaceAll("\\s+"," ").split("[- ]");    // o replaceAll substitui as sequências de espaços por um só espaço
             for(String word : inputs) {
-                try {
-                    out.print(map.get(word) + " ");
-                } catch(Exception e) {
-                    out.print(word + " ");             //isto nao esta a acontecer
-                }
+                if(map.containsKey(word)) out.print(map.get(word) + " ");
+                else out.print(word + " ");
             }
 
             out.println();
