@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
 import static java.lang.System.out;
 
@@ -21,9 +22,11 @@ public class Ex3 {
 
         while(true) {
 
-            String[] inputs = in.nextLine().trim().replaceAll("\\s+"," ").split("[- ]");    // o replaceAll substitui as sequências de espaços por um só espaço
+            String[] inputs = in.nextLine().trim().replaceAll("-"," ").replaceAll("\\s+"," ").split(" ");    // o replaceAll substitui as sequências de espaços por um só espaço
+
             for(String word : inputs) {
-                if(map.containsKey(word)) out.print(map.get(word) + " ");
+                String wordLower = word.toLowerCase();
+                if(map.containsKey(wordLower)) out.print(map.get(wordLower) + " ");
                 else out.print(word + " ");
             }
 
