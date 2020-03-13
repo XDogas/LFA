@@ -18,10 +18,10 @@ public class HelloParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, ID=3, WS=4;
 	public static final int
-		RULE_top = 0, RULE_greetings = 1, RULE_bye = 2;
+		RULE_top = 0, RULE_greetings = 1, RULE_bye = 2, RULE_name = 3, RULE_main = 4;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"top", "greetings", "bye"
+			"top", "greetings", "bye", "name", "main"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -118,20 +118,20 @@ public class HelloParser extends Parser {
 		TopContext _localctx = new TopContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_top);
 		try {
-			setState(8);
+			setState(12);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__0:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(6);
+				setState(10);
 				greetings();
 				}
 				break;
 			case T__1:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(7);
+				setState(11);
 				bye();
 				}
 				break;
@@ -151,7 +151,9 @@ public class HelloParser extends Parser {
 	}
 
 	public static class GreetingsContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(HelloParser.ID, 0); }
+		public NameContext name() {
+			return getRuleContext(NameContext.class,0);
+		}
 		public GreetingsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -177,10 +179,10 @@ public class HelloParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(10);
+			setState(14);
 			match(T__0);
-			setState(11);
-			match(ID);
+			setState(15);
+			name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -195,7 +197,9 @@ public class HelloParser extends Parser {
 	}
 
 	public static class ByeContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(HelloParser.ID, 0); }
+		public NameContext name() {
+			return getRuleContext(NameContext.class,0);
+		}
 		public ByeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -221,10 +225,131 @@ public class HelloParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(13);
+			setState(17);
 			match(T__1);
-			setState(14);
-			match(ID);
+			setState(18);
+			name();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class NameContext extends ParserRuleContext {
+		public List<TerminalNode> ID() { return getTokens(HelloParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(HelloParser.ID, i);
+		}
+		public NameContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_name; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof HelloListener ) ((HelloListener)listener).enterName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof HelloListener ) ((HelloListener)listener).exitName(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof HelloVisitor ) return ((HelloVisitor<? extends T>)visitor).visitName(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final NameContext name() throws RecognitionException {
+		NameContext _localctx = new NameContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_name);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(21); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(20);
+				match(ID);
+				}
+				}
+				setState(23); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( _la==ID );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MainContext extends ParserRuleContext {
+		public TerminalNode EOF() { return getToken(HelloParser.EOF, 0); }
+		public List<TopContext> top() {
+			return getRuleContexts(TopContext.class);
+		}
+		public TopContext top(int i) {
+			return getRuleContext(TopContext.class,i);
+		}
+		public MainContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_main; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof HelloListener ) ((HelloListener)listener).enterMain(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof HelloListener ) ((HelloListener)listener).exitMain(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof HelloVisitor ) return ((HelloVisitor<? extends T>)visitor).visitMain(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MainContext main() throws RecognitionException {
+		MainContext _localctx = new MainContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_main);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(28);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==T__0 || _la==T__1) {
+				{
+				{
+				setState(25);
+				top();
+				}
+				}
+				setState(30);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(31);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -239,11 +364,16 @@ public class HelloParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\6\23\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\3\2\3\2\5\2\13\n\2\3\3\3\3\3\3\3\4\3\4\3\4\3\4\2\2\5\2\4"+
-		"\6\2\2\2\20\2\n\3\2\2\2\4\f\3\2\2\2\6\17\3\2\2\2\b\13\5\4\3\2\t\13\5\6"+
-		"\4\2\n\b\3\2\2\2\n\t\3\2\2\2\13\3\3\2\2\2\f\r\7\3\2\2\r\16\7\5\2\2\16"+
-		"\5\3\2\2\2\17\20\7\4\2\2\20\21\7\5\2\2\21\7\3\2\2\2\3\n";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\6$\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\5\2\17\n\2\3\3\3\3\3\3\3\4\3\4\3\4"+
+		"\3\5\6\5\30\n\5\r\5\16\5\31\3\6\7\6\35\n\6\f\6\16\6 \13\6\3\6\3\6\3\6"+
+		"\2\2\7\2\4\6\b\n\2\2\2!\2\16\3\2\2\2\4\20\3\2\2\2\6\23\3\2\2\2\b\27\3"+
+		"\2\2\2\n\36\3\2\2\2\f\17\5\4\3\2\r\17\5\6\4\2\16\f\3\2\2\2\16\r\3\2\2"+
+		"\2\17\3\3\2\2\2\20\21\7\3\2\2\21\22\5\b\5\2\22\5\3\2\2\2\23\24\7\4\2\2"+
+		"\24\25\5\b\5\2\25\7\3\2\2\2\26\30\7\5\2\2\27\26\3\2\2\2\30\31\3\2\2\2"+
+		"\31\27\3\2\2\2\31\32\3\2\2\2\32\t\3\2\2\2\33\35\5\2\2\2\34\33\3\2\2\2"+
+		"\35 \3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37!\3\2\2\2 \36\3\2\2\2!\"\7"+
+		"\2\2\3\"\13\3\2\2\2\5\16\31\36";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
