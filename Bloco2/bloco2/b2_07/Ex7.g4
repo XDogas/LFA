@@ -1,8 +1,4 @@
-grammar Ex5;
-
-@header {
-    import static java.lang.System.*;
-}
+grammar Ex7;
 
 program :
         stat* EOF
@@ -18,7 +14,7 @@ assignment :
     ;
 
 expr :
-        op=('+'|'-') expr           #ExprUnary
+        s=('+'|'-') expr            #ExprUnary
     |   expr op=('*'|'/'|'%') expr  #ExprMultDivMod
     |   expr op=('+'|'-') expr      #ExprAddSub
     |   Integer                     #ExprInteger

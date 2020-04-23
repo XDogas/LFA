@@ -5,15 +5,10 @@ public class Interpreter extends SuffixCalculatorBaseVisitor<Double> {
     }
 
     @Override public Double visitStat(SuffixCalculatorParser.StatContext ctx) {
+        //if(ctx.expr() == null) return null;
 
-        Double res;
-
-        if(ctx.expr() == null) return null;
-
-        res = (Double)visit(ctx.expr());
-
-        if(res == null) res = null;
-        else System.out.println(ctx.getText() + " = " + res);
+        Double res = (Double)visit(ctx.expr());
+        if(res != null) System.out.println(" = " + res);
 
         return res;
     }
@@ -23,9 +18,9 @@ public class Interpreter extends SuffixCalculatorBaseVisitor<Double> {
         Double num1 = visit(ctx.expr(0));
         Double num2 = visit(ctx.expr(1));
         Double res = null;
-        String op = ctx.op.getText();
 
         if(num1 != null && num2 != null) {
+            String op = ctx.op.getText();
             switch(op) {
                 case "+":
                     res = num1 + num2;
