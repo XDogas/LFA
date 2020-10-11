@@ -1,0 +1,40 @@
+id(quiz, section, question) ::= "<quiz><if(section)><section><endif><if(question)><question><endif>"
+
+next(id) ::= "<id>.goToNext();"
+
+prev(id) ::= "<id>.goToPrev();"
+
+end(id) ::= "<id>.goToEnd();"
+
+start(id) ::= "<id>.goToStart();"
+
+goto(id, target) ::= "<id>.goTo(<target>);"
+
+answer(questionID, answerID) ::= "<questionID>.answer(<answerID>);"
+
+sizeof(id) ::= "<id>.size();"
+
+result(id) ::= "<id>.result();"
+
+show(questionID) ::= << 
+//show Question
+String text = <questionID>.getText();
+Map\<String, Answer> enabled = <questionID>.getEnabledAnswers();
+
+//print QuestionText
+System.out.println(text);
+
+Iterator\<Map.Entry\<String,Answer\>> iterator = enabled.entrySet().iterator;
+
+//print AnswerText
+while(iterator.hasNext()) {
+    Map.Entry\<String, Answer> entry = iterator.next();
+    String answerID = entry.getkey();
+    Answer answer = entry.getValue();
+    
+    String answerText = answer.getText();
+
+    answerText = answerID.concat("- " + answerText);
+    System.out.println(answerText);
+}
+>>
