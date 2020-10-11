@@ -1,0 +1,24 @@
+load 'question.qst' as f1;
+
+Quiz Teste(partcipant, score) {
+
+    Section parte1 (
+        from f1:
+        P1,
+        P2:[a,b,c],
+        P4,
+        P5;
+    );
+
+    Section parte2 (
+        from f1: P7,P8:[a,d];
+    );
+}
+
+main {
+    Quiz t;
+    t = Teste("Joao", 100);
+    
+    //Teste does not contains any Section parte3
+    goto t.parte3;
+}

@@ -1,0 +1,25 @@
+load 'question.qst' as f1;
+
+//Error: VariableError
+
+Quiz Teste(partcipant, score) {
+
+    Section parte1 (
+        from f1:
+        P1,
+        P2:[a,b,c],
+        P4,
+        P5;
+    );
+
+    Section parte2 (
+        from f1: P7,P8:[a,d];
+    );
+}
+
+main {
+		
+		a=1; //variavel a nao foi declarada
+		int b,c;
+		b=c; //nao foi atribuido nenhum valor à variável c
+}

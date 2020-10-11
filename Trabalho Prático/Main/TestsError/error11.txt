@@ -1,0 +1,26 @@
+load 'question.qst' as f1;
+
+//Error: answer does not exist.
+
+Quiz Teste(partcipant, score) {
+    
+    Section parte1 (
+        from f1:
+        P1,
+        P2:[a,g,c];
+    );
+
+    Section parte2 (
+        from f1: P7,P8:[a,d];
+    );
+
+    Section parte3 (
+	from f1:
+        P4,
+        P5;
+    );
+}
+
+main {
+
+}

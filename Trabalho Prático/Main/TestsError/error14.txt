@@ -1,0 +1,33 @@
+load 'questions0.qst' as f1;
+
+//Error: option already exists
+
+Quiz Teste(partcipant, score) {
+
+    Options (
+	giveUp : "desistir" ;
+	giveUp : "parte1" ;
+	parte2 : "parte2" ;
+	nextQuestion : "proximo" ;
+    );
+    
+    Section parte1 <60%> (
+        from f1:
+        P1,
+        P2:[a,b,c];
+    );
+
+    Section parte2 <40%> (
+        from f1: P7,P8:[a,d];
+    );
+
+    Section parte3 (
+	from f1:
+        P4,
+        P5;
+    );
+}
+
+main {
+
+}

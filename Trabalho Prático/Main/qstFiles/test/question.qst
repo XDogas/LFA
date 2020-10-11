@@ -1,0 +1,96 @@
+difficulty[0:10] := 5;
+
+V = 100;
+F = 0;
+
+<"Cultura geral">
+	<"Historia de portugal" := 4 > 
+
+		P1("Ministro de D. José I, Sebastião José de Carvalho e Melo ficou também conhecido como? ") {
+			a - "Marquês de Pombal.":V;
+			b - "Duque da Terceira.":F;
+			c - "Marquês de Fronteira.":F;
+			d - "Nenhuma das anteriores":F;
+		}
+		P2("Em que século Portugal se tornou um país independente?") {
+			a - "XII":V;
+			b - "XIV":F;
+			c - "XIII":V;
+			d - "Nenhum dos anteriores":F;
+		}
+
+		P3("Que parte da cidade de Lisboa foi reconstruída depois do terramoto segundo os planos de Marquês de Pombal?") {
+			a - "Baixa Pombalina":V;
+			b - "Zona Expo":F;
+			c - "Bairro Alto":F;
+			d - "Nenhuma das anteriores":F;
+		}
+
+		P4("Como ficou conhecida a revolução de 25 de Abril de 1974?") {
+			a - "Revolução das Rosas":F;
+			b - "Revolução dos Cravos":V;
+			c - "Revolução da Liberdade":F;
+			d - "Nenhuma das anteriores":F;
+		}
+	
+		P5("Em que ano é que Portugal entrou para a CEE?") {
+			a - "1991":F;
+			b - "1981":V;
+			c - "1986":F;
+			d - "Nenhuma das anteriores":F;
+		}
+
+		P6("Segundo a lenda, que rei português, desaparecido na batalha de Alcácer-Quibir, voltará um dia, numa manhã de nevoeiro?") {
+			a - "D. Sebastião":V;
+			b - "D. Afonso V":F;
+			c - "D. Sancho I":F;
+			d - "Nenhuma das anteriores":F;
+		}
+
+	</"Historia de portugal">
+	
+
+	<"Gramática"> 
+
+		<"Classe de palavras" := 7>
+			P7("Qual das frases tem dois advérbios?") {
+				a - "Talvez fossem boas pessoas.":F;
+				b - "Ali ninguém conhecia bem os seus segredos.":V;
+				c - "Trabalhavam muito durante a tarde.":F;
+				d - "Não receavam a maldade daquelas pessoas.":F;
+			}
+			
+			P8("Qual das frases tem duas conjunções?") {
+				a - "Deitou-se e adormeceu imediatamente, porque estava cansada.":V;
+				b - "A avó já está deitada, pois a luzes das escadas estão apagadas.":F;
+				c - "Felizmente, enquanto esteve ali, nada de especial aconteceu.":F;
+				d - "Enquanto a Susana estudava matemática, ele foi consertar a bicicleta.":F;
+			}
+
+			P9("Qual das frases não tem um adjetivo?") {
+				a - "Nuvens escuras enchiam a paisagem de ameaças.":F;
+				b - "Ficaste inquieta quando o cão correu na tua direção.":F;
+				c - "Entraram tranquilamente na floresta selvagem.":F;
+				d - "Notava-se bem, no silêncio da paisagem, uma paz que tranquilizava.":V;
+			}
+		</"Classe de palavras">
+		
+		<"Funções sintáticas">
+			P10("Ontem entregámos nas finanças[ toda a documentação necessária. ]") {
+				a - "Complemento direto":V;
+				b - "Complemento indireto":F;
+				c - "Complemento oblíquo":F;
+				d - "Predicativo do sujeito":F;
+			}
+
+			P11("O tio Adriano deu os parabéns [ à mãe ]") {
+				a - "Predicativo do sujeito":F;
+				b - "Complemento indireto":V;
+				c - "Complemento direto":F;
+				d - "Complemento oblíquo":F;
+			}
+		</"Funções sintáticas">
+
+	</"Gramática">
+
+</"Cultura geral">

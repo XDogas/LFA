@@ -1,0 +1,99 @@
+difficulty[0:10] := 5;
+
+V = 100;
+F = 0;
+
+<"Ciência">
+
+	<"Física" := 4 >
+		P1("Quantas são as leis de Newton?") {
+			a - "1":F;
+			b - "10":F;
+			c - "3":V;
+			d - "5":F;
+		}
+
+		P2("Qual a unidade de energia definida pelo Sistema Internacional?") {
+			a - "Joule":V;
+			b - "Quilograma":F;
+			c - "Kelvin":F;
+			d - "Tesla":F;
+		}
+	</"Física">
+
+	<"Matemática" := 2 >
+		P3("Qual o resultado de 4+5*2?") {
+			a - "18":F;
+			b - "10":F;
+			c - "14":V;
+			d - "31":F;
+		}
+	</"Matemática">
+
+	<"Química" := 5 >
+		P4("Qual o simbolo químico do Sódio?") {
+			a - "K":F;
+			b - "So":F;
+			c - "S":F;
+			d - "Na":V;
+		}
+	</"Química">
+
+</"Ciência">
+
+
+<"Desporto">
+
+	<"Futebol" := 9 >
+		P5("Quem ganhou a Liga dos Campeões Europeus em 1983–84?") {
+			a - "Barcelona.":F;
+			b - "Real Madrid.":F;
+			c - "Liverpool.":V;
+			d - "Roma.":F;
+		}
+	</"Futebol">
+	
+	<"Tenis" := 8>
+		P6("Quantos Grand Slams tem o tenista Rafael Nadal") {
+			a - "19":V;
+			b - "20":F;
+			c - "17":F;
+			d - "18":F;
+		}
+	</"Tenis">
+
+</"Desporto">
+
+
+<"Arte" := 2>
+	P7("Quem pintou a famosa obra Mona Lisa?") {
+		a - "Pablo Picasso.":F;
+		b - "Claude Monet.":F;
+		c - "Salvador Dalí.":F;
+		d - "Leonardo da Vinci.":V;
+	}
+</"Arte">
+
+<"Geografia" := 7>
+	P8("Qual é a capital da Lituânia?") {
+		a - "Trakai.":F;
+		b - "Kaunas.":F;
+		c - "Vilnius.":V;
+		d - "Palanga.":F;
+	}
+	P9("Qual destes países tem mais habitantes?") {
+		a - "Canada.":F;
+		b - "Colombia.":V;
+		c - "Venezuela.":F;
+		d - "Portugal.":F;
+	}
+</"Geografia">
+
+<"Tecnologia" := 3>
+	P10("Qual destas não é uma linguagem de programação?") {
+		a - "Java.":F;
+		b - "C.":F;
+		c - "Python.":F;
+		d - "C+++.":V;
+	}
+</"Tecnologia">

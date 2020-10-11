@@ -1,0 +1,102 @@
+load 'question.qst' as f1;    
+load 'popup.qst' as p;
+
+//TESTE LINEAR
+Quiz Teste(participant, score) {
+    //60% para parte1
+    //4 perguntas sobre historia de portugal
+    //25% cada pergunta
+    Section parte1<60%> (
+        from f1:
+        P1,
+        P2:[a,b,c],
+        P4,
+        P5;
+    );
+
+    //40% para parte2
+    //2 perguntas sobre gramatica
+    //50% cada pergunta
+    Section parte2<40%> (
+        from f1: P7,P8:[a,d];
+    );
+}
+
+main {
+    clear;
+    String participant;
+    print "Nome:";
+    //ler participante do input
+    read participant;
+    
+    int score;
+    score = 100;
+    Quiz t;
+    t = Teste(participant, score);
+    
+    //comecar na primeira parte pergunta P1
+    goto t.parte1;
+    goto t.parte1.f1_P1;
+    
+    
+    double p1Size;
+    p1Size = sizeof t.parte1;
+    
+    int i;
+    i = 0;
+    
+    while(i < p1Size) { 
+        clear;
+        //responder pergunta atual
+        show t.current.current;
+        answer(t.current.current);
+        
+        //avancar para a proxima pergunta
+        next t.current;
+        i++;
+    }
+    
+    //avancar para proxima Section (parte2), comecar na pergunta P7
+    next t;
+    goto t.parte2.f1_P7;
+    
+    i = 0;
+    int p2Size;
+    p2Size = sizeof t.parte2;
+
+
+    while(i < p2Size) {
+        clear;
+        show t.current.current;
+        answer(t.current.current);
+        
+        //avancar para a proxima pergunta
+        next t.current;
+        i++;
+    }
+
+    double finalResult;
+    finalResult = result t;
+
+   
+    if(finalResult < 50) {
+        print "Reprovado ! \n";
+    }
+    else {
+        print "Aprovado ! \n";
+    }
+
+    //imprimir resultados
+    print "Resultado parte 1: " + result t.parte1 + "\n";
+    print "Valor parte 1: " + value t.parte1 + "\n";
+    print "Resultado pergunta 1: " + result t.parte1.f1_P1 + "\n";
+    print "Resultado pergunta 2: " + result t.parte1.f1_P2 + "\n";
+    print "Resultado pergunta 4: " + result t.parte1.f1_P4 + "\n";
+    print "Resultado pergunta 5: " + result t.parte1.f1_P5 + "\n";
+
+    print "\nResultado parte 2: " + result t.parte2 + "\n"; 
+    print "Valor parte 2: " + value t.parte2 + "\n";
+    print "Resultado pergunta P7: " + result t.parte2.f1_P7 + "\n";
+    print "Resultado pergunta P8: " + result t.parte2.f1_P8 + "\n";
+    print "\nResultado final : " + finalResult + "\n";
+}

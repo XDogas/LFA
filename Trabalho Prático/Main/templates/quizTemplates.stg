@@ -1,0 +1,118 @@
+stats(stat) ::= <<
+<if(stat)><stat; separator=";\n"><endif>
+>>
+
+id(quiz, section, question) ::= "<quiz><if(section)><section><endif><if(question)><question><endif>"
+
+next(id) ::= "<id>.goToNext();"
+
+nextUnansweredQuestion(idSection) ::= "<idSection>.goToNextUnanswered();"
+
+prevUnansweredQuestion(idSection) ::= "<idSection>.goToPrevUnanswered();"
+
+prev(id) ::= "<id>.goToPrev();"
+
+end(id) ::= "<id>.goToEnd();"
+
+start(id) ::= "<id>.goToStart();"
+
+goto(id, target) ::= "<id>.goTo(<target>);"
+
+answer(questionID, answerID) ::= <<
+while(!<questionID>.answer(<answerID>)) {
+    System.out.print(String.format("\033[%dA",1)); // Move up
+    System.out.print("\033[2K");    //erase
+} >>
+
+answerWithOptions(var, options, questionID, valid_stat, invalid_stat) ::= <<
+<input(var)>
+switch(<var>) {
+<if(options)><options; separator= "\n"><endif>
+default:
+    if(<questionID>.answer(<var>)) {
+        <if(valid_stat)><valid_stat><endif>
+    }
+    else {
+        <if(invalid_stat)><invalid_stat><endif>
+    }
+}
+>>
+
+option(optionID, statOption) ::= <<
+    case("<optionID>") :
+        <stats(statOption)>
+        break;
+>>
+
+sizeof(id) ::= "<id>.size()"
+
+result(id) ::= "<id>.result()"
+
+value(id) ::= "<id>.value()"
+
+selected(id) ::= "<id>.getSelectedAnswer()"
+
+theme(id) ::= "<id>.getTheme()"
+
+show(questionID, sectionID) ::= << 
+
+//show Question
+
+//print QuestionID
+System.out.print(<sectionID>.getIndexOfQuestion(<questionID>.getID()) + 1 + ".");
+//print QuestionText
+System.out.println(<questionID>.getText());
+
+//print AnswerText
+for(Map.Entry\<String, Answer> answer : <questionID>.getEnabledAnswers().entrySet()) {
+    String result = answer.getKey();
+    result = result.concat("- " + answer.getValue().getText());
+
+    System.out.println(result);
+}
+
+>>
+
+ifCondition(simpleIfCondition,elseCondition) ::= <<
+<simpleIfCondition>
+<elseCondition>
+>>
+
+input(var) ::= <<
+String <var> = in.nextLine();
+>>
+
+clearScreen() ::= <<
+//clear screen
+System.out.print("\033[H\033[2J");
+>>
+
+quizAddOptions(optionsID, quizID) ::= <<
+<quizID>.addOptions(<optionsID>);
+>>
+
+options(optionsID) ::= <<
+Options <optionsID> = new Options("<optionsID>");
+>>
+
+optionsAddOption(optionsID, optionID, optionText) ::= <<
+<optionsID>.addOption(new Option("<optionID>",<optionText>));
+>>
+
+disableOptions(quizID, optionsID) ::= <<
+<quizID>.disableOptionsByID(<optionsID>);
+>>
+
+enableOptions(quizID, optionsID) ::= <<
+<quizID>.enableOptionsByID(<optionsID>);
+>>
+
+enableOptionsByID(quizID, optionsID, optionID) ::= <<
+<quizID>.getOptionsByID(<optionsID>).enableOption(<optionID>);
+>>
+
+disableOptionsByID(quizID, optionsID, optionID) ::= <<
+<quizID>.getOptionsByID(<optionsID>).disableOption(<optionID>);
+>>
+
+

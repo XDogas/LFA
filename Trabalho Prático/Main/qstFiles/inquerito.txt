@@ -1,0 +1,42 @@
+difficulty[0:10] := 0;
+
+S = 0;
+
+<"Inquérito">
+
+    P1("Gosta de redes Sociais?") {
+        a - "Sim":S;
+        b - "Não":S;
+	}
+    P2("Utiliza, atualmente, alguma rede social?") {
+        a - "Sim":S;
+        b - "Não":S;
+	}
+    P3("Com frequência utiliza as redes sociais?") {
+        a - "1 hora por dia":S;
+        b - "2 horas por dia":S;
+        c - "Mais que 2 horas por dia":S;
+        d - "Não utilizo":S;
+	}
+    P4("Qual destas redes sociais mais gosta?") {
+        a - "Facebook":S;
+        b - "Instagram":S;
+        c - "Twitter":S;
+        d - "Outra":S;
+	}
+    P5("Recomendaria aos seus amigos o uso de redes sociais?") {
+        a - "Sim":S;
+        b - "Não":S;
+	}
+    P6("Na sua opinião as redes sociais podem tornar-se perigosas?") {
+        a - "Sim":S;
+        b - "Não":S;
+	}
+    P7("Qual a sua opinião acerca deste inquérito?") {
+        a - "Interessante":S;
+        b - "Muito Interessante":S;
+        c - "Pouco Interessante":S;
+        d - "Completamente desintressante":S;
+	}
+    
+</"Inquérito">

@@ -1,0 +1,27 @@
+load 'question.qst' as f1;
+
+//Error: IncrementDecrementError
+
+Quiz Teste(partcipant, score) {
+
+    Section parte1 (
+        from f1:
+        P1,
+        P2:[a,b,c],
+        P4,
+        P5;
+    );
+
+    Section parte2 (
+        from f1: P7,P8:[a,d];
+    );
+}
+main {
+		
+		String a,b;
+		boolean c;
+		a++; //nao se podem incrementar Strings, apenas variáveis numéricas
+		d++; //nao se pode incrementar uma variavel que nao existe
+		y--; //nao se pode decrementar uma variavel que nao existe
+		c--; //nao se podem decrementar booleanos, apenas variaveis numéricas
+}

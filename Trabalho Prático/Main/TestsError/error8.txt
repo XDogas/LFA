@@ -1,0 +1,22 @@
+load 'question.qst' as f1;
+
+//Error: Database not defined.
+
+Quiz Teste(partcipant, score) {
+    
+    Section parte1 (
+        from f1:
+        P1,
+        P2:[a,b,c],
+        P4,
+        P5;
+    );
+
+    Section parte2 (
+        from f2: P7,P8:[a,d];
+    );
+}
+
+main {
+
+}
