@@ -1,0 +1,6 @@
+// prog1.txt
+
+t1: "Miguel"
+print t1
+//t2 : input("Nome: ")
+print t2
