@@ -1,8 +1,4 @@
 // Generated from Ex8.g4 by ANTLR 4.8
-
-    import static java.lang.System.*;
-    import java.util.*;
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -115,6 +111,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitProgram(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitProgram(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -166,18 +167,23 @@ public class Ex8Parser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class StatExprContext extends StatContext {
+	public static class StatPrintContext extends StatContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public StatExprContext(StatContext ctx) { copyFrom(ctx); }
+		public StatPrintContext(StatContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).enterStatExpr(this);
+			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).enterStatPrint(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitStatExpr(this);
+			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitStatPrint(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitStatPrint(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class StatAssignContext extends StatContext {
@@ -193,6 +199,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitStatAssign(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitStatAssign(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final StatContext stat() throws RecognitionException {
@@ -203,7 +214,7 @@ public class Ex8Parser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__1:
-				_localctx = new StatExprContext(_localctx);
+				_localctx = new StatPrintContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(20);
@@ -257,6 +268,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitAssignment(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitAssignment(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final AssignmentContext assignment() throws RecognitionException {
@@ -306,6 +322,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprVAR(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprVAR(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ExprAddSubContext extends ExprContext {
 		public Token op;
@@ -324,6 +345,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprAddSub(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprAddSub(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ExprParentContext extends ExprContext {
 		public ExprContext expr() {
@@ -337,6 +363,11 @@ public class Ex8Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprParent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprParent(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ExprMultDivContext extends ExprContext {
@@ -356,6 +387,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprMultDiv(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprMultDiv(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ExprReduceContext extends ExprContext {
 		public ExprContext expr() {
@@ -369,6 +405,11 @@ public class Ex8Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprReduce(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprReduce(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ExprFractionContext extends ExprContext {
@@ -384,8 +425,14 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprFraction(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprFraction(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ExprExponentContext extends ExprContext {
+		public Token s;
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -398,6 +445,11 @@ public class Ex8Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitExprExponent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitExprExponent(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -417,9 +469,9 @@ public class Ex8Parser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(47);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				{
 				_localctx = new ExprFractionContext(_localctx);
@@ -467,7 +519,26 @@ public class Ex8Parser extends Parser {
 				match(T__9);
 				setState(40);
 				match(T__10);
-				setState(41);
+				setState(42);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==T__6 || _la==T__7) {
+					{
+					setState(41);
+					((ExprExponentContext)_localctx).s = _input.LT(1);
+					_la = _input.LA(1);
+					if ( !(_la==T__6 || _la==T__7) ) {
+						((ExprExponentContext)_localctx).s = (Token)_errHandler.recoverInline(this);
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					}
+				}
+
+				setState(44);
 				match(Integer);
 				}
 				break;
@@ -476,30 +547,30 @@ public class Ex8Parser extends Parser {
 				_localctx = new ExprVARContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(43);
+				setState(46);
 				match(VAR);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(54);
+			setState(57);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(52);
+					setState(55);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ExprMultDivContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(46);
+						setState(49);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(47);
+						setState(50);
 						((ExprMultDivContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==T__4 || _la==T__5) ) {
@@ -510,7 +581,7 @@ public class Ex8Parser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(48);
+						setState(51);
 						expr(6);
 						}
 						break;
@@ -518,9 +589,9 @@ public class Ex8Parser extends Parser {
 						{
 						_localctx = new ExprAddSubContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(49);
+						setState(52);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(50);
+						setState(53);
 						((ExprAddSubContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==T__6 || _la==T__7) ) {
@@ -531,16 +602,16 @@ public class Ex8Parser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(51);
+						setState(54);
 						expr(5);
 						}
 						break;
 					}
 					} 
 				}
-				setState(56);
+				setState(59);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			}
 			}
 		}
@@ -575,6 +646,11 @@ public class Ex8Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Ex8Listener ) ((Ex8Listener)listener).exitFraction(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Ex8Visitor ) return ((Ex8Visitor<? extends T>)visitor).visitFraction(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FractionContext fraction() throws RecognitionException {
@@ -584,12 +660,12 @@ public class Ex8Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(58);
+			setState(61);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__6 || _la==T__7) {
 				{
-				setState(57);
+				setState(60);
 				((FractionContext)_localctx).s = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==T__6 || _la==T__7) ) {
@@ -603,16 +679,16 @@ public class Ex8Parser extends Parser {
 				}
 			}
 
-			setState(60);
-			((FractionContext)_localctx).num = match(Integer);
 			setState(63);
+			((FractionContext)_localctx).num = match(Integer);
+			setState(66);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				{
-				setState(61);
+				setState(64);
 				match(T__11);
-				setState(62);
+				setState(65);
 				((FractionContext)_localctx).den = match(Integer);
 				}
 				break;
@@ -648,24 +724,25 @@ public class Ex8Parser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22D\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22G\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3\2"+
 		"\3\2\3\3\3\3\3\3\5\3\32\n\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3"+
-		"\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5/\n\5\3\5\3\5\3\5\3\5\3\5\3\5\7"+
-		"\5\67\n\5\f\5\16\5:\13\5\3\6\5\6=\n\6\3\6\3\6\3\6\5\6B\n\6\3\6\2\3\b\7"+
-		"\2\4\6\b\n\2\4\3\2\7\b\3\2\t\n\2H\2\21\3\2\2\2\4\31\3\2\2\2\6\33\3\2\2"+
-		"\2\b.\3\2\2\2\n<\3\2\2\2\f\r\5\4\3\2\r\16\7\3\2\2\16\20\3\2\2\2\17\f\3"+
-		"\2\2\2\20\23\3\2\2\2\21\17\3\2\2\2\21\22\3\2\2\2\22\24\3\2\2\2\23\21\3"+
-		"\2\2\2\24\25\7\2\2\3\25\3\3\2\2\2\26\27\7\4\2\2\27\32\5\b\5\2\30\32\5"+
-		"\6\4\2\31\26\3\2\2\2\31\30\3\2\2\2\32\5\3\2\2\2\33\34\5\b\5\2\34\35\7"+
-		"\5\2\2\35\36\7\17\2\2\36\7\3\2\2\2\37 \b\5\1\2 /\5\n\6\2!\"\7\6\2\2\""+
-		"/\5\b\5\b#$\7\13\2\2$%\5\b\5\2%&\7\f\2\2&/\3\2\2\2\'(\7\13\2\2()\5\b\5"+
-		"\2)*\7\f\2\2*+\7\r\2\2+,\7\20\2\2,/\3\2\2\2-/\7\17\2\2.\37\3\2\2\2.!\3"+
-		"\2\2\2.#\3\2\2\2.\'\3\2\2\2.-\3\2\2\2/8\3\2\2\2\60\61\f\7\2\2\61\62\t"+
-		"\2\2\2\62\67\5\b\5\b\63\64\f\6\2\2\64\65\t\3\2\2\65\67\5\b\5\7\66\60\3"+
-		"\2\2\2\66\63\3\2\2\2\67:\3\2\2\28\66\3\2\2\289\3\2\2\29\t\3\2\2\2:8\3"+
-		"\2\2\2;=\t\3\2\2<;\3\2\2\2<=\3\2\2\2=>\3\2\2\2>A\7\20\2\2?@\7\16\2\2@"+
-		"B\7\20\2\2A?\3\2\2\2AB\3\2\2\2B\13\3\2\2\2\t\21\31.\668<A";
+		"\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5-\n\5\3\5\3\5\3\5\5\5\62\n\5\3\5\3\5\3\5"+
+		"\3\5\3\5\3\5\7\5:\n\5\f\5\16\5=\13\5\3\6\5\6@\n\6\3\6\3\6\3\6\5\6E\n\6"+
+		"\3\6\2\3\b\7\2\4\6\b\n\2\4\3\2\t\n\3\2\7\b\2L\2\21\3\2\2\2\4\31\3\2\2"+
+		"\2\6\33\3\2\2\2\b\61\3\2\2\2\n?\3\2\2\2\f\r\5\4\3\2\r\16\7\3\2\2\16\20"+
+		"\3\2\2\2\17\f\3\2\2\2\20\23\3\2\2\2\21\17\3\2\2\2\21\22\3\2\2\2\22\24"+
+		"\3\2\2\2\23\21\3\2\2\2\24\25\7\2\2\3\25\3\3\2\2\2\26\27\7\4\2\2\27\32"+
+		"\5\b\5\2\30\32\5\6\4\2\31\26\3\2\2\2\31\30\3\2\2\2\32\5\3\2\2\2\33\34"+
+		"\5\b\5\2\34\35\7\5\2\2\35\36\7\17\2\2\36\7\3\2\2\2\37 \b\5\1\2 \62\5\n"+
+		"\6\2!\"\7\6\2\2\"\62\5\b\5\b#$\7\13\2\2$%\5\b\5\2%&\7\f\2\2&\62\3\2\2"+
+		"\2\'(\7\13\2\2()\5\b\5\2)*\7\f\2\2*,\7\r\2\2+-\t\2\2\2,+\3\2\2\2,-\3\2"+
+		"\2\2-.\3\2\2\2./\7\20\2\2/\62\3\2\2\2\60\62\7\17\2\2\61\37\3\2\2\2\61"+
+		"!\3\2\2\2\61#\3\2\2\2\61\'\3\2\2\2\61\60\3\2\2\2\62;\3\2\2\2\63\64\f\7"+
+		"\2\2\64\65\t\3\2\2\65:\5\b\5\b\66\67\f\6\2\2\678\t\2\2\28:\5\b\5\79\63"+
+		"\3\2\2\29\66\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2<\t\3\2\2\2=;\3\2\2"+
+		"\2>@\t\2\2\2?>\3\2\2\2?@\3\2\2\2@A\3\2\2\2AD\7\20\2\2BC\7\16\2\2CE\7\20"+
+		"\2\2DB\3\2\2\2DE\3\2\2\2E\13\3\2\2\2\n\21\31,\619;?D";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

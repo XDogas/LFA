@@ -1,9 +1,5 @@
 // Generated from Ex8.g4 by ANTLR 4.8
 
-    import static java.lang.System.*;
-    import java.util.*;
-
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -31,13 +27,13 @@ public class Ex8BaseListener implements Ex8Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatExpr(Ex8Parser.StatExprContext ctx) { }
+	@Override public void enterStatPrint(Ex8Parser.StatPrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatExpr(Ex8Parser.StatExprContext ctx) { }
+	@Override public void exitStatPrint(Ex8Parser.StatPrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

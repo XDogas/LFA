@@ -1,8 +1,4 @@
 // Generated from Ex8.g4 by ANTLR 4.8
-
-    import static java.lang.System.*;
-    import java.util.*;
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -21,17 +17,17 @@ public interface Ex8Listener extends ParseTreeListener {
 	 */
 	void exitProgram(Ex8Parser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code StatExpr}
+	 * Enter a parse tree produced by the {@code StatPrint}
 	 * labeled alternative in {@link Ex8Parser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatExpr(Ex8Parser.StatExprContext ctx);
+	void enterStatPrint(Ex8Parser.StatPrintContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code StatExpr}
+	 * Exit a parse tree produced by the {@code StatPrint}
 	 * labeled alternative in {@link Ex8Parser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void exitStatExpr(Ex8Parser.StatExprContext ctx);
+	void exitStatPrint(Ex8Parser.StatPrintContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code StatAssign}
 	 * labeled alternative in {@link Ex8Parser#stat}.

@@ -19,7 +19,7 @@ expr :
     |   expr op=('*'|':') expr                      #ExprMultDiv
     |   expr op=('+'|'-') expr                      #ExprAddSub
     |   '(' expr ')'                                #ExprParent
-    |   '(' expr ')' '^' op=('+'|'-')? Integer      #ExprExponent
+    |   '(' expr ')' '^' s=('+'|'-')? Integer       #ExprExponent
     |   VAR                                         #ExprVAR
     ;
 
@@ -28,4 +28,4 @@ fraction: s=('+'|'-')? num=Integer ('/' den=Integer)?;
 VAR      : [A-Za-z]+;
 Integer : [0-9]+;
 WS      : [ \t\n\r] -> skip;
-COMMENT : '#' .*? '\n' -> skip;
+COMMENT : '//' .*? '\n' -> skip;

@@ -21,8 +21,22 @@ public class Fraction {
         return den;
     }
 
+    public void reduce() {
+        int gcd = gcd(num,den);
+        num = num / gcd;
+        den = den / gcd;
+    }
+
+    private static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+
     @Override
     public String toString() {
-        return num + "/" + den;
+        String s = "";
+        if(den == 1) s += this.num;
+        else if(num == 0) s += 0;
+        else s += this.num + "/" + this.den;
+        return s;
     }
 }
